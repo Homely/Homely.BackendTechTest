@@ -1,6 +1,6 @@
-﻿using BuggyAPI.Services;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
+using ThirdPartyLib;
 
 namespace BuggyAPI.Controllers
 {
@@ -10,15 +10,14 @@ namespace BuggyAPI.Controllers
     //      - Identify the problem
     //      - Explain to us why the problem occurs
     //      - Fix the problem
-    //      - Prove you're fixed the problem
-    //      - Do it in the best way you know how
+    //      - Prove you're fixed the problem (just in the browser, don't worry about tests)
     public class BuggyController : Controller
     {
-        private TestService _testService;
+        private SomeServiceYouCantChange _thirdPartyLib;
 
         public BuggyController()
         {
-            _testService = new TestService();
+            _thirdPartyLib = new SomeServiceYouCantChange();
         }
 
         public ActionResult Problem()
@@ -29,7 +28,7 @@ namespace BuggyAPI.Controllers
 
         private async Task<string> GetDataAsync()
         {
-            var result = await _testService.GetDataAsync();
+            var result = await _thirdPartyLib.ReturnsTheStringYouWantAsync();
             return result;
         }
     }

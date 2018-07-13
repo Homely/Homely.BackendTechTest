@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 
-namespace BuggyAPI.Services
+namespace ThirdPartyLib
 {
-    public class TestService
+    public class SomeServiceYouCantChange
     {
-        public async Task<string> GetDataAsync()
+        public async Task<string> ReturnsTheStringYouWantAsync()
         {
             await Task.Delay(1000);
             return "you've fixed me!";
